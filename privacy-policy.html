@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>プライバシーポリシー | Luvid</title>
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0f1116;
+      --card: #181c24;
+      --text: #e6ebf2;
+      --muted: #9aa5b5;
+      --accent: #3b82f6;
+      --border: #2a3140;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 820px;
+      margin: 40px auto;
+      padding: 32px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    h1 { margin-top: 0; font-size: 1.75rem; }
+    h2 { margin-top: 2rem; font-size: 1.15rem; color: #fff; border-left: 4px solid var(--accent); padding-left: 10px; }
+    p, li { color: var(--text); }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .notice {
+      padding: 12px 16px;
+      background: rgba(59, 130, 246, 0.12);
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Luvid プライバシーポリシー</h1>
+    <p class="meta">最終更新日: 2026年11月17日 / 対象アプリ: Luvid（パッケージID: com.luvid.app）</p>
+
+    <p>
+      Luvid（以下「本アプリ」）は、スマートフォン上でカメラ・外部USB映像音声入力・テロップ・BGM等を合成し、ライブ配信およびローカル録画を行うモバイルアプリケーションです。本プライバシーポリシーでは、本アプリにおけるユーザー情報および端末権限の取り扱いについて説明します。
+    </p>
+
+    <h2>1. 取得・利用する情報と端末権限</h2>
+    <ul>
+      <li><strong>カメラ（CAMERA）および USB UVC デバイス</strong><br />
+        ライブ映像のプレビュー表示、配信映像のエンコード、および端末内録画ファイルの生成のために使用します。開発者の外部サーバーへ映像データを収集・蓄積することはありません。</li>
+      <li><strong>マイク（RECORD_AUDIO）および USB UAC / Bluetooth 音声機器（BLUETOOTH_CONNECT）</strong><br />
+        配信および録画における音声の収音・ミキシングのために使用します。</li>
+      <li><strong>ネットワーク通信（INTERNET）</strong><br />
+        ユーザーが設定したライブ配信先（YouTube、RTMP、SRT、WHIP 等）への映像・音声データの送信、および YouTube Live 連携機能の通信のために使用します。</li>
+      <li><strong>Google アカウント・YouTube Data API 連携情報</strong><br />
+        ユーザーが任意で Google アカウント連携を行った場合のみ、YouTube ライブ配信枠の取得・作成・更新、ストリームキー取得、ライブチャットの取得のために、アカウント表示名・メールアドレス・チャンネル名および OAuth 認証トークンを使用します。取得した認証情報は端末内の暗号化領域（Android Keystore を用いたローカル保存）にのみ保存され、開発者サーバーへ送信・保存されることはありません。</li>
+      <li><strong>ストレージ・メディアファイルへのアクセス</strong><br />
+        録画動画（<code>Movies/Luvid</code>）やスナップショット画像（<code>Pictures/Luvid</code>）の保存、ならびにユーザーが選択したオーバーレイ画像（PNG/JPEG）および BGM 音声ファイルの読み込みに使用します。</li>
+      <li><strong>通知およびフォアグラウンドサービス権限（POST_NOTIFICATIONS / FOREGROUND_SERVICE）</strong><br />
+        ライブ配信や録画がバックグラウンドに移行した場合でも安定して処理を継続し、配信・録画中であることを通知領域に明示するために使用します。</li>
+    </ul>
+
+    <h2>2. 第三者提供・広告・トラッキングについて</h2>
+    <p>
+      本アプリは、サードパーティの広告 SDK や行動分析・トラッキング SDK を組み込んでいません。ユーザーの個人情報を第三者へ販売、貸与、または不正に共有することはありません。なお、ライブ配信データおよび YouTube 連携通信は、ユーザー自身の操作により各配信プラットフォーム（Google LLC / YouTube 等）へ直接送信されます。
+    </p>
+
+    <h2>3. データの保持と削除</h2>
+    <p>
+      アプリ設定・シーン構成・ローカル BGM プレイリスト・認証トークンはユーザー端末内にのみ保存されます。アプリ内の「連携解除（サインアウト）」操作により Google / YouTube 連携トークンを削除できるほか、アプリをアンインストールすることで端末内のアプリデータはすべて削除されます。
+    </p>
+
+    <h2>4. セキュリティ対策</h2>
+    <p>
+      端末内に保存する認証セッション情報は Android Keystore（AES-GCM 暗号化）を用いて保護されており、クラウド自動バックアップ（<code>allowBackup</code>）を無効化しています。外部 API 通信には HTTPS を使用します。
+    </p>
+
+    <h2>5. プライバシーポリシーの変更</h2>
+    <p>
+      機能追加や法令・プラットフォーム要件の変更に伴い、本プライバシーポリシーの内容を改定することがあります。重要な変更がある場合は本ページにて告知します。
+    </p>
+
+    <h2>6. お問い合わせ先</h2>
+    <div class="notice">
+      本アプリのプライバシーに関するお問い合わせは、以下までご連絡ください。<br />
+      荻野 達 (OGIZARU): <strong>
+      ogizarutob8000@gmail.com
+      </strong>
+    </div>
+  </main>
+</body>
+</html>
