@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luvid — モバイル ライブ配信スイッチャー | Official App Page</title>
+  <meta name="description" content="Luvid（com.luvid.app）は、外部HDMI/UVCカメラと内蔵カメラを切り替え、テロップ・画像オーバーレイ・BGM合成でYouTube等へライブ配信＆録画できるAndroidアプリです。" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f1116;
+      --card: #181c24;
+      --card-alt: #1e2330;
+      --text: #e6ebf2;
+      --muted: #9aa5b5;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.14);
+      --border: #2a3140;
+      --success: #22c55e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 17, 22, 0.92);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+    nav a { color: var(--muted); }
+    nav a:hover, nav a.active { color: #fff; }
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 36px 20px 64px;
+    }
+    .hero {
+      background: linear-gradient(145deg, var(--card) 0%, #131722 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero img {
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .hero-body { flex: 1; min-width: 240px; }
+    .badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .subtitle {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid var(--border);
+      background: var(--card-alt);
+      color: #fff;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn:hover { text-decoration: none; opacity: 0.92; }
+    section { margin-top: 36px; }
+    h2 {
+      font-size: 1.28rem;
+      color: #fff;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+      margin: 0 0 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      color: #fff;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .notice {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .notice ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+    .notice li {
+      margin-bottom: 6px;
+      font-size: 0.94rem;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icon.png" alt="Luvid App Icon" />
+        <span>Luvid</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Top / 概要</a>
+        <a href="privacy-policy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約 (Terms of Use)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="assets/icon.png" alt="Luvid Logo" />
+      <div class="hero-body">
+        <span class="badge">Android Live Streaming Switcher • com.luvid.app</span>
+        <h1>Luvid — モバイル ライブ配信スイッチャー</h1>
+        <p class="subtitle">
+          Luvid は、Android スマートフォン 1 台で外部 HDMI / USB UVC カメラと内蔵カメラを切り替え、テロップ・透過 PNG ロゴ・スライド・BGM をリアルタイム合成して YouTube Live 等へ配信およびローカル録画できるモバイルスイッチャーアプリです。<br />
+          <span style="font-size:0.86rem;">(Mobile live streaming switcher &amp; local recorder supporting USB UVC/HDMI capture, scene overlays, audio mixing, and YouTube Live integration.)</span>
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#youtube-oauth">YouTube 連携とデータ利用について</a>
+          <a class="btn" href="privacy-policy.html">Privacy Policy</a>
+          <a class="btn" href="terms.html">Terms of Use</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>主な機能 / Key Features</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>マルチカメラ＆UVC入力</h3>
+          <p>USB UVC キャプチャ機器（外部 HDMI カメラ等）と端末の内蔵アウト／インカメラをシームレスに切り替え、露出・フォーカス・ズーム等を制御できます。</p>
+        </div>
+        <div class="card">
+          <h3>シーン＆オーバーレイ合成</h3>
+          <p>テロップ2系統、透過PNGロゴ、全画面JPEGスライドショー、トランジション（カット／ディゾルブ等）をリアルタイムで映像に合成します。</p>
+        </div>
+        <div class="card">
+          <h3>マルチオーディオミキサー</h3>
+          <p>内蔵マイク、USB オーディオ（UAC）、Bluetooth マイク、端末内 BGM 音声をチャンネル別ゲイン・コンプレッサー・ダッキングで調整可能です。</p>
+        </div>
+        <div class="card">
+          <h3>ライブ配信＆ローカル録画</h3>
+          <p>RTMP / RTMPS / SRT による配信、マルチ配信、フォアグラウンド継続処理、ならびに端末ストレージ（Movies/Luvid）への MP4 同時録画に対応します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="youtube-oauth">
+      <h2>Google アカウント / YouTube Live 連携について (Google API Disclosure)</h2>
+      <div class="notice">
+        <p style="margin-top:0;">
+          Luvid は、ユーザーが希望した場合のみ Google OAuth 2.0 認証を通じて <strong>YouTube Data API v3</strong> と連携し、配信準備や配信中コメントの表示を支援します。
+        </p>
+        <ul>
+          <li><strong>要求する権限と用途（Why we request YouTube scopes）</strong>：
+            <code>https://www.googleapis.com/auth/youtube.force-ssl</code>、<code>userinfo.profile</code>、<code>userinfo.email</code> を使用し、ユーザー自身の操作により YouTube Live 配信枠（Broadcast）の取得・作成・タイトル/概要欄更新、RTMP/SRT ストリームキーの反映、ライブチャットコメントの取得・画面表示を行います。
+          </li>
+          <li><strong>データの保存と安全性（Local-only Storage &amp; Limited Use）</strong>：
+            取得した認証トークン・チャンネル情報は、ユーザー端末内の Android Keystore（AES-GCM暗号化領域）にのみ保存され、開発者の外部サーバーへの送信・販売・広告利用は一切行いません。アプリ内の「連携解除」からいつでも削除できます。
+          </li>
+          <li><strong>準拠ポリシー（Policy Compliance）</strong>：
+            Luvid の Google API から受け取った情報の利用および他アプリへの転送は、Google API Services User Data Policy（Limited Use 要件を含む）に準拠します。YouTube 連携のご利用にあたっては <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener noreferrer">YouTube 利用規約</a> および <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google プライバシーポリシー</a> が適用されます。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>サポート・お問い合わせ / Developer Contact</h2>
+      <div class="notice">
+        <p style="margin:0;">
+          開発・運営：<strong>荻野 達 (OGIZARU)</strong><br />
+          サポートメール：<a href="mailto:ogizarutob8000@gmail.com">ogizarutob8000@gmail.com</a><br />
+          関連ポリシー：<a href="privacy-policy.html">プライバシーポリシー (Privacy Policy)</a> / <a href="terms.html">利用規約 (Terms of Use)</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Top Page</a>
+      <a href="privacy-policy.html">プライバシーポリシー (Privacy Policy)</a>
+      <a href="terms.html">利用規約 (Terms of Use)</a>
+    </div>
+    <div>&copy; 2026 Luvid / 荻野 達 (OGIZARU)</div>
+  </footer>
+</body>
+</html>
